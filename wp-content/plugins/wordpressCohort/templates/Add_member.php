@@ -6,6 +6,22 @@
     <form method="post">
 
         <h1>Add Cohort member</h1>
+        <?php
+
+global $success_msg;
+
+if ($success_msg) {
+    echo "<p id='message'>Cohort member has been added successfully</p>";
+
+    echo '<script> document.getElementById("message").style.display = "flex"; </script>';
+
+    echo    '<script> 
+                setTimeout(function(){
+                    document.getElementById("message").style.display ="none";
+                }, 3000);
+            </script>';
+}
+?>
         <div>
             <label for="name">Name</label>
             <input type="text" id='name' name="name" required />
@@ -23,14 +39,7 @@
             <input type="number" name="age" id='age' required />
         </div>
         <input type="submit" name='submit'>
-        <?php
-
-global $success_msg;
-
-if ($success_msg) {
-    echo "<p id='message'>Cohort member has been added successfully</p>";
-}
-?>
+        
     </form>
 </div>
 </div>
@@ -83,10 +92,11 @@ if ($success_msg) {
     }
 
     #message {
-    background-color: #040404;
-    color:#ffffff;
+    background-color: #ffffff;
+    color:#16EC28;
     border-radius: 5px;
+    padding:4px;
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 400;
     }
 </style>
